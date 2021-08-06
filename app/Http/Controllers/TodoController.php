@@ -12,9 +12,13 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Todo::all();
+        // $data = Todo::all();
+        $data = Todo::applyFilters($request->only([
+                'search'
+            ]))
+            ->get();
         return response()->json([
             'todos' => $data
         ]);
