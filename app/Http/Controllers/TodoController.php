@@ -93,6 +93,7 @@ class TodoController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'is_completed' => 'required',
         ]);
     
         $data = $todo->update($request->all());

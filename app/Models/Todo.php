@@ -10,7 +10,7 @@ class Todo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description'
+        'title', 'description','is_completed'
     ];
 
     public function scopeApplyFilters($query, array $filters)
